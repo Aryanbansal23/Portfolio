@@ -29,7 +29,7 @@ function Footer() {
               text-transparent"
             >
 
-              Aryan.
+              Aryan
 
             </h2>
 

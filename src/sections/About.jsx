@@ -10,7 +10,7 @@ function About() {
   const stats = [
     {
       icon: <FaCode />,
-      number: "300+",
+      number: "500+",
       title: "DSA Problems",
     },
     {

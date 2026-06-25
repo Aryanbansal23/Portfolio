@@ -22,7 +22,7 @@ function Navbar() {
           <span className="bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
             Aryan
           </span>
-          <span className="text-white">.</span>
+
         </a>
 
         {/* Desktop Menu */}
