@@ -1,63 +1,130 @@
-import skills from "../data/skills";
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import projects from "../data/projects";
 
-function Skills() {
+function Projects() {
   return (
-    <section id="skills" className="bg-[#020617] py-24">
+    <section
+      id="projects"
+      className="py-28 bg-[#07021A] text-white"
+    >
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-6xl font-bold text-center text-white">
-          My <span className="text-cyan-400">Skills</span>
-        </h2>
+        <motion.div
+          initial={{ opacity:0,y:60 }}
+          whileInView={{ opacity:1,y:0 }}
+          viewport={{ once:true }}
+        >
 
-        <p className="text-center text-gray-400 mt-4 mb-16">
-          Technologies & tools I use to build modern applications.
-        </p>
+          <h2
+            className="
+            text-5xl
+            md:text-6xl
+            font-extrabold
+            text-center
+            bg-gradient-to-r
+            from-violet-500
+            via-blue-500
+            to-cyan-400
+            bg-clip-text
+            text-transparent"
+          >
 
-        <div className="grid lg:grid-cols-2 gap-8">
+            Featured Projects
 
-          {skills.map((category) => (
+          </h2>
 
-            <div
-              key={category.title}
-              className="rounded-3xl bg-slate-900 border border-slate-700 p-8 hover:border-cyan-400 transition-all duration-300"
+          <p className="text-center text-slate-400 mt-6 mb-16">
+
+            Some projects I've built during my learning journey.
+
+          </p>
+
+        </motion.div>
+
+        <div className="space-y-16">
+
+          {projects.map((project,index)=>(
+
+            <motion.div
+              key={project.title}
+              initial={{ opacity:0,y:60 }}
+              whileInView={{ opacity:1,y:0 }}
+              transition={{ delay:index*.2 }}
+              viewport={{ once:true }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-violet-500 duration-300 lg:grid lg:grid-cols-2"
             >
 
-              <h3
-                className={`text-3xl font-bold mb-8 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}
-              >
-                {category.title}
-              </h3>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
+              <div className="p-10">
 
-                {category.skills.map((item) => {
+                <h2 className="text-4xl font-bold">
 
-                  const Icon = item.icon;
+                  {project.title}
 
-                  return (
-                    <div
-                      key={item.name}
-                      className="bg-slate-800 rounded-2xl p-6 text-center hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300"
+                </h2>
+
+                <p className="mt-6 text-slate-300 leading-8">
+
+                  {project.description}
+
+                </p>
+
+                <div className="flex flex-wrap gap-3 mt-8">
+
+                  {project.tech.map((tech)=>(
+
+                    <span
+                      key={tech}
+                      className="px-4 py-2 rounded-full bg-violet-500/20 text-violet-300"
                     >
 
-                      <Icon
-                        size={50}
-                        color={item.color}
-                        className="mx-auto"
-                      />
+                      {tech}
 
-                      <h4 className="mt-4 text-white font-semibold">
-                        {item.name}
-                      </h4>
+                    </span>
 
-                    </div>
-                  );
+                  ))}
 
-                })}
+                </div>
+
+                <div className="flex gap-5 mt-10">
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400 flex items-center gap-2 hover:scale-105 duration-300"
+                  >
+
+                    <FaGithub />
+
+                    GitHub
+
+                  </a>
+
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-6 py-3 rounded-full border border-violet-500 flex items-center gap-2 hover:bg-white/5 duration-300"
+                  >
+
+                    <FaExternalLinkAlt />
+
+                    Live Demo
+
+                  </a>
+
+                </div>
 
               </div>
 
-            </div>
+            </motion.div>
 
           ))}
 
@@ -68,4 +135,4 @@ function Skills() {
   );
 }
 
-export default Skills;
+export default Projects;

@@ -1,33 +1,32 @@
 const projects = [
   {
-  id: 1,
-  title: "School Management System",
+    title: "School Management System",
 
-  description:
-    "A full-stack School Management System built using PHP, MySQL, HTML, CSS, and JavaScript. It includes role-based authentication, attendance management, fee tracking, report cards, class scheduling, and dashboards for Admin, Teachers, and Students.",
+    description:
+      "A full-stack School Management System that manages students, teachers, attendance, report cards, fees, schedules and examinations using PHP and MySQL.",
 
-  image: "/school.png",
+    image: "/school.png",
 
-  tech: [
-    "PHP",
-    "MySQL",
-    "HTML",
-    "CSS",
-    "JavaScript",
-  ],
+    tech: [
+      "PHP",
+      "MySQL",
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
 
-  github:
-    "https://github.com/Aryanbansal23/management_school-main",
+    github:
+      "https://github.com/Aryanbansal23/management_school-main",
 
-  live:
-    "https://management-school-main.vercel.app/",
-},
+    live:
+      "https://management-school-main.vercel.app/",
+  },
+
   {
-    id: 2,
     title: "Monkey Newspaper",
 
     description:
-      "A responsive News Application that fetches real-time news using News API with search, category filtering and responsive UI.",
+      "Responsive News Application using React and News API with category filtering, search and live headlines.",
 
     image: "/newspaper.png",
 
@@ -38,9 +37,9 @@ const projects = [
     ],
 
     github:
-      "https://github.com/Aryanbansal23/monkey-newspaper",
+      "https://github.com/Aryanbansal23",
 
-    live: "#",
+    live:"#",
   },
 ];
 
