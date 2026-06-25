@@ -6,34 +6,53 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="bg-slate-950 text-white py-24"
+      className="py-28 bg-[#07021A] text-white"
     >
       <div className="max-w-7xl mx-auto px-6">
 
-        <motion.h2
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-5xl font-bold text-center"
+        <motion.div
+          initial={{ opacity:0,y:60 }}
+          whileInView={{ opacity:1,y:0 }}
+          viewport={{ once:true }}
         >
-          Featured{" "}
-          <span className="text-cyan-400">
-            Projects
-          </span>
-        </motion.h2>
 
-        <p className="text-center text-slate-400 mt-5 mb-16">
-          Projects I've built while learning Full Stack Development.
-        </p>
+          <h2
+            className="
+            text-5xl
+            md:text-6xl
+            font-extrabold
+            text-center
+            bg-gradient-to-r
+            from-violet-500
+            via-blue-500
+            to-cyan-400
+            bg-clip-text
+            text-transparent"
+          >
 
-        <div className="space-y-14">
+            Featured Projects
 
-          {projects.map((project) => (
+          </h2>
+
+          <p className="text-center text-slate-400 mt-6 mb-16">
+
+            Some projects I've built during my learning journey.
+
+          </p>
+
+        </motion.div>
+
+        <div className="space-y-16">
+
+          {projects.map((project,index)=>(
 
             <motion.div
-              key={project.id}
-              whileHover={{ scale: 1.02 }}
-              className="bg-slate-900 rounded-3xl overflow-hidden shadow-xl border border-slate-700 lg:grid lg:grid-cols-2"
+              key={project.title}
+              initial={{ opacity:0,y:60 }}
+              whileInView={{ opacity:1,y:0 }}
+              transition={{ delay:index*.2 }}
+              viewport={{ once:true }}
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden hover:border-violet-500 duration-300 lg:grid lg:grid-cols-2"
             >
 
               <img
@@ -42,51 +61,63 @@ function Projects() {
                 className="w-full h-full object-cover"
               />
 
-              <div className="p-8">
+              <div className="p-10">
 
-                <h3 className="text-3xl font-bold">
+                <h2 className="text-4xl font-bold">
+
                   {project.title}
-                </h3>
 
-                <p className="text-slate-400 mt-5 leading-8">
+                </h2>
+
+                <p className="mt-6 text-slate-300 leading-8">
+
                   {project.description}
+
                 </p>
 
                 <div className="flex flex-wrap gap-3 mt-8">
 
-                  {project.tech.map((tech) => (
+                  {project.tech.map((tech)=>(
 
                     <span
                       key={tech}
-                      className="bg-cyan-500/20 text-cyan-400 px-4 py-2 rounded-full text-sm"
+                      className="px-4 py-2 rounded-full bg-violet-500/20 text-violet-300"
                     >
+
                       {tech}
+
                     </span>
 
                   ))}
 
                 </div>
 
-                <div className="flex gap-5 mt-8">
+                <div className="flex gap-5 mt-10">
 
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 bg-slate-800 hover:bg-cyan-500 transition px-6 py-3 rounded-xl"
+                    className="px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400 flex items-center gap-2 hover:scale-105 duration-300"
                   >
+
                     <FaGithub />
+
                     GitHub
+
                   </a>
 
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-600 transition px-6 py-3 rounded-xl"
+                    className="px-6 py-3 rounded-full border border-violet-500 flex items-center gap-2 hover:bg-white/5 duration-300"
                   >
+
                     <FaExternalLinkAlt />
+
                     Live Demo
+
                   </a>
 
                 </div>
